@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Start Lytics Tracking Tag Version 3 -->
+  <script type="text/javascript">
+    !function(){"use strict";var o=window.jstag||(window.jstag={}),r=[];function n(e){o[e]=function(){for(var n=arguments.length,t=new Array(n),i=0;i<n;i++)t[i]=arguments[i];r.push([e,t])}}n("send"),n("mock"),n("identify"),n("pageView"),n("unblock"),n("getid"),n("setid"),n("loadEntity"),n("getEntity"),n("on"),n("once"),n("call"),o.loadScript=function(n,t,i){var e=document.createElement("script");e.async=!0,e.src=n,e.onload=t,e.onerror=i;var o=document.getElementsByTagName("script")[0],r=o&&o.parentNode||document.head||document.body,c=o||r.lastChild;return null!=c?r.insertBefore(e,c):r.appendChild(e),this},o.init=function n(t){return this.config=t,this.loadScript(t.src,function(){if(o.init===n)throw new Error("Load error!");o.init(o.config),function(){for(var n=0;n<r.length;n++){var t=r[n][0],i=r[n][1];o[t].apply(o,i)}r=void 0}()}),this}}();
+    // Define config and initialize Lytics tracking tag.
+    // - The setup below will disable the automatic sending of Page Analysis Information (to prevent duplicative sends, as this same information will be included in the jstag.pageView() call below, by default)
+    jstag.init({
+      src: 'https://c.lytics.io/api/tag/4e370df98152709b364bcb066b25ae44/latest.min.js',
+      pageAnalysis: {
+        dataLayerPull: {
+          disabled: true
+        }
+      }
+    });
+
+    // You may need to send a page view, depending on your use-case
+    jstag.pageView();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thunder Motors - Premium Motorcycle Showroom</title>
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Base styles */
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #111;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #f44336;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: #f44336;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./bike.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            margin-top: 0;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #f44336;
+            color: #fff;
+            padding: 15px 35px;
+            border-radius: 0;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #d32f2f;
+            transform: translateY(-3px);
+        }
+
+        /* Featured Bikes */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #f44336;
+        }
+
+        .bikes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .bike-card {
+            background-color: #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .bike-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .bike-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .bike-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .bike-brand {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #f44336;
+            color: #fff;
+            padding: 5px 15px;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .bike-info {
+            padding: 30px;
+        }
+
+        .bike-info h3 {
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .bike-info p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .bike-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: #f44336;
+            margin-bottom: 20px;
+        }
+
+        .bike-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .spec-icon {
+            width: 20px;
+            margin-right: 10px;
+            color: #888;
+        }
+
+        .spec-value {
+            font-weight: 600;
+        }
+
+        /* Categories Section */
+        .categories {
+            background-color: #111;
+            color: #fff;
+        }
+
+        .category-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .category-item {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .category-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .category-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .category-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            transition: all 0.3s;
+        }
+
+        .category-item:hover .category-content {
+            background: linear-gradient(transparent, rgba(244,67,54,0.8));
+        }
+
+        .category-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .category-content p {
+            font-size: 14px;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        /* About Section */
+        .about {
+            background-color: #fff;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            background-color: #f44336;
+            z-index: 0;
+        }
+
+        .about-image img {
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 700;
+            color: #f44336;
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: #f5f5f5;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background-color: #fff;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 100px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #f5f5f5;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 20px;
+            border: 3px solid #f44336;
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .author-info p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Contact */
+        .contact {
+            background-color: #fff;
+        }
+
+        .contact-content {
+            display: flex;
+            gap: 60px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-details {
+            margin-bottom: 40px;
+        }
+
+        .contact-details p {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            margin-right: 15px;
+            color: #f44336;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .location-map {
+            width: 100%;
+            height: 250px;
+            margin-top: 30px;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            background-color: #f9f9f9;
+        }
+
+        .form-control:focus {
+            border-color: #f44336;
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #fff;
+            padding: 80px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-column h3 {
+            font-size: 22px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #f44336;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #f44336;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: #f44336;
+            transform: translateY(-5px);
+        }
+
+        .footer-newsletter p {
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            background-color: #222;
+            color: #fff;
+        }
+
+        .newsletter-btn {
+            background-color: #f44336;
+            color: #fff;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #d32f2f;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .bikes-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+
+            .about-content {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .section {
+                padding: 80px 0;
+            }
+
+            .section-title h2 {
+                font-size: 36px;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .contact-content {
+                flex-direction: column;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: #111;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 20px 0;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .bikes-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(1, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .bike-specs {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-card {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Thunder Motors</div>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#bikes">Motorcycles</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Experience the Thrill of Power</h1>
+                <p>Discover premium motorcycles from Royal Enfield, Kawasaki, Triumph, and more at Thunder Motors</p>
+                <a href="#bikes" class="btn">Explore Motorcycles</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Bikes -->
+    <section class="section" id="bikes">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Motorcycles</h2>
+            </div>
+            <div class="bikes-grid">
+                <div class="bike-card">
+                    <div class="bike-brand">Royal Enfield</div>
+                    <img src="./bike.jpg" alt="Royal Enfield Classic 350">
+                    <div class="bike-info">
+                        <h3>Classic 350</h3>
+                        <p>The timeless design with modern performance and legendary thump</p>
+                        <div class="bike-price">$4,699</div>
+                        <div class="bike-specs">
+                            <div class="spec-item">
+                                <span class="spec-icon">⚙️</span>
+                                <span class="spec-value">349cc</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-icon">⚡</span>
+                                <span class="spec-value">20.2 BHP</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-icon">🔄</span>
+                                <span class="spec-value">5 Speed</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-icon">⚖️</span>
+                                <span class="spec-value">195 kg</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+                <div class="bike-card">
+                    <div class="bike-brand">Kawasaki</div>
+                    <img src="./bike.jpg" alt="Kawasaki Ninja 650">
+                    <div class="bike-info">
+                        <h3>Ninja 650</h3>
+                        <p>The perfect blend of sport performance and everyday versatility</p>
+                        <div class="bike-price">$7,899</div>
+                        <div class="bike-specs">
+                            <div class="spec-item">
+                                <span class="spec-icon">⚙️</span>
+                                <span class="spec-value">649cc</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-icon">⚡</span>
+                                <span class="spec-value">67 BHP</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-icon">🔄</span>
+                                <span class="spec-value">6 Speed</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-icon">⚖️</span>
+                                <span class="spec-value">196 kg</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+                <div class="bike-card">
+                    <div class="bike-brand">Triumph</div>
+                    <img src="./bike.jpg" alt="Triumph Street Triple">
+                    <div class="bike-info">
+                        <h3>Street Triple R</h3>
+                        <p>Aggressive styling with precise handling and thrilling performance</p>
+                        <div class="bike-price">$10,295</div>
+                        <div class="bike-specs">
+                            <div class="spec-item">
+                                <span class="spec-icon">⚙️</span>
+                                <span class="spec-value">765cc</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-icon">⚡</span>
+                                <span class="spec-value">116 BHP</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-icon">🔄</span>
+                                <span class="spec-value">6 Speed</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-icon">⚖️</span>
+                                <span class="spec-value">189 kg</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section categories" id="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Motorcycle Categories</h2>
+            </div>
+            <div class="category-container">
+                <div class="category-item">
+                    <img src="./bike.jpg" alt="Cruiser Motorcycles">
+                    <div class="category-content">
+                        <h3>Cruisers</h3>
+                        <p>Comfortable, low-seated bikes built for cruising highways in style</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                </div>
+                <div class="category-item">
+                    <img src="./bike.jpg" alt="Sport Motorcycles">
+                    <div class="category-content">
+                        <h3>Sport Bikes</h3>
+                        <p>High-performance machines built for speed and agility</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                </div>
+                <div class="category-item">
+                    <img src="./bike.jpg" alt="Adventure Motorcycles">
+                    <div class="category-content">
+                        <h3>Adventure</h3>
+                        <p>Versatile bikes designed for both on and off-road adventures</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                </div>
+                <div class="category-item">
+                    <img src="./bike.jpg" alt="Classic Motorcycles">
+                    <div class="category-content">
+                        <h3>Classic</h3>
+                        <p>Timeless designs that capture the essence of motorcycling heritage</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Thunder Motors</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="./bike.jpg" alt="Motorcycle Showroom">
+                </div>
+                <div class="about-text">
+                    <h2>Leading Motorcycle Dealership</h2>
+                    <p>At Thunder Motors, we've been passionate about motorcycles for over a decade. Our showroom features premium motorcycles from renowned global brands including Royal Enfield, Kawasaki, Triumph, Honda, Yamaha, and many more.</p>
+                    <p>Our team of motorcycle enthusiasts and technical experts is dedicated to helping you find your perfect ride. Whether you're a seasoned rider or just beginning your journey on two wheels, we offer personalized guidance based on your riding style and preferences.</p>
+
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <div class="stat-number">1,200+</div>
+                            <div class="stat-text">Bikes Sold</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-text">Premium Brands</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-text">Service Support</div>
+                        </div>
+                    </div>
+
+                    <p>We also provide comprehensive after-sales service, customization options, and organized riding events to enhance your ownership experience.</p>
+                    <a href="#contact" class="btn">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>Thunder Motors guided me to my perfect Royal Enfield Classic 350. Their knowledge of bikes and passion for riding made the buying experience exceptional. The after-sales service is equally impressive!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="./bike.jpg" alt="Customer">
+                        <div class="author-info">
+                            <h4>Alex Mitchell</h4>
+                            <p>Royal Enfield Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>As a performance enthusiast, I was looking for a sport bike that could handle both track days and daily commutes. The team at Thunder Motors recommended the Ninja 650, and it's been the perfect match for my riding style.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="./bike.jpg" alt="Customer">
+                        <div class="author-info">
+                            <h4>Sarah Williams</h4>
+                            <p>Kawasaki Rider</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>The customization options offered by Thunder Motors transformed my Triumph into a unique machine. Their technical expertise and attention to detail are unmatched. I wouldn't trust my bike with anyone else.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="./bike.jpg" alt="Customer">
+                        <div class="author-info">
+                            <h4>James Thompson</h4>
+                            <p>Triumph Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title
