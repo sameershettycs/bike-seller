@@ -70,7 +70,8 @@
 
       function handleSubmitNewLetter(e) {
         e.preventDefault();
-        jstag.send({
+        jstag.send("email_subscribers", {
+          event: "email_subscribers",
           email: document.getElementById("newsletter-email").value,
         });
         document.getElementById("newsletter-email").value = "";
