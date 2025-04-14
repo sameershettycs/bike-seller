@@ -57,7 +57,6 @@
       // - The setup below will disable the automatic sending of Page Analysis Information (to prevent duplicative sends, as this same information will be included in the jstag.pageView() call below, by default)
       jstag.init({
         src: "https://c.lytics.io/api/tag/4e370df98152709b364bcb066b25ae44/latest.min.js",
-        stream: "email_subscribers",
         pageAnalysis: {
           dataLayerPull: {
             disabled: true,
@@ -70,8 +69,7 @@
 
       function handleSubmitNewLetter(e) {
         e.preventDefault();
-        jstag.send("email_subscribers", {
-          event: "email_subscribers",
+        jstag.send({
           email: document.getElementById("newsletter-email").value,
         });
         document.getElementById("newsletter-email").value = "";
