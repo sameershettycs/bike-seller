@@ -66,6 +66,14 @@
 
       // You may need to send a page view, depending on your use-case
       jstag.pageView();
+
+      function handleSubmitNewLetter(e) {
+        e.preventDefault();
+        jstag.send({
+          email: document.getElementById("newsletter-email").value,
+        });
+        document.getElementById("newsletter-email").value = "";
+      }
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -1227,9 +1235,13 @@
               Subscribe to our newsletter to receive updates on new arrivals,
               special offers and other discount information.
             </p>
-            <form class="newsletter-form">
+            <form
+              class="newsletter-form"
+              onsubmit="handleSubmitNewLetter(event)"
+            >
               <input
                 type="email"
+                id="newsletter-email"
                 class="newsletter-input"
                 placeholder="Your Email Address"
                 required
